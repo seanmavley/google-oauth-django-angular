@@ -6,7 +6,7 @@ This repository contains the most minimum setup needed to Authenticate via API u
 
 - Download/Clone the repository
 - Run `cd backend && pip install -r requirements`
-- Run `cd frontend && npm install`
+- Run `cd frontend && bun install`
 - Create a `environment.development.ts` file in the `src/environments/` folder and update with your Google ID
 
 ```
