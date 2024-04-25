@@ -11,10 +11,10 @@ import django.utils.timezone as timezone
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from django.contrib.auth import get_user_model
 from .serializers import UserSerializer
-
+from dotenv import load_dotenv
+load_dotenv()
 
 CLIENT_ID = os.environ.get('GOOGLE_OAUTH2_CLIENT_ID')
-
 
 def generate_tokens_for_user(user):
     """
@@ -37,6 +37,7 @@ class GoogleLoginApi(APIView):
 
     def post(self, request, *args, **kwargs):
         google_jwt = request.data.get('jwt')
+        print(google_jwt)
         try:
             # Specify the CLIENT_ID of the app that accesses the backend:
             idinfo = id_token.verify_oauth2_token(
