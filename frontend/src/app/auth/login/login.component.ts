@@ -20,7 +20,7 @@ export class LoginComponent {
             console.log('User payload from Google: ', loginRes)
           },
           error: (error: any) => {
-            console.log("Something ain't right!", `The error is: ${error.error}`)
+            console.log("Something ain't right!", `The error is: ${error.error.message}`)
           }
         })
     });
