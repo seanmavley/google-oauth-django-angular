@@ -37,6 +37,7 @@ class GoogleLoginApi(APIView):
 
     def post(self, request, *args, **kwargs):
         google_jwt = request.data.get('jwt')
+        print(google_jwt)
         try:
             # Specify the CLIENT_ID of the app that accesses the backend:
             idinfo = id_token.verify_oauth2_token(

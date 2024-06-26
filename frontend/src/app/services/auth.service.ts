@@ -47,7 +47,6 @@ export class AuthService {
         localStorage.setItem(this.access_token, access_token)
         localStorage.setItem(this.refresh_token, refresh_token)
         localStorage.setItem('tokenTime', new Date().getTime().toString());
-        // this.getUserProfile();
       }),
       catchError((error: HttpErrorResponse) => {
         return throwError(() => error);
@@ -70,16 +69,6 @@ export class AuthService {
   logout() {
     return localStorage.clear();
   }
-
-  // getUserProfile() {
-  //   const url = `${this.apiUrl}/auth/profile/`;
-  //   const headers = this.getAuthorizationHeader();
-
-  //   return this.http.get(url, { headers })
-  //     .pipe(tap((res: any) => {
-  //       localStorage.setItem('user', JSON.stringify(res))
-  //     }));
-  // }
 
   isAuth() {
     const token = this.getAuthToken();

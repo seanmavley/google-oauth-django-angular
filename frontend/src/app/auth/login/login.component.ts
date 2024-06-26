@@ -10,7 +10,7 @@ import { SocialAuthService } from "@abacritt/angularx-social-login";
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  constructor(private socialAuth: SocialAuthService, private auth: AuthService, private http: HttpClient, private route: Router) { }
+  constructor(private socialAuth: SocialAuthService, private auth: AuthService, private route: Router) { }
   ngOnInit() {
     this.socialAuth.authState.subscribe((res: any) => {
       console.log(res)
@@ -18,6 +18,7 @@ export class LoginComponent {
         .subscribe({
           next: (loginRes: any) => {
             console.log('User payload from Google: ', loginRes)
+            this.route.navigate(['/'])
           },
           error: (error: any) => {
             console.log("Something ain't right!", `The error is: ${error.error.message}`)
